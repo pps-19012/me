@@ -1,0 +1,397 @@
+/* 0. Import Fonts: Merriweather (Serif) & JetBrains Mono (Technical) */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+/* 1. Variables */
+:root {
+    --bg-color: #fcfcfc;       /* Off-white paper */
+    --text-color: #222222;     /* Sharp black */
+    --accent-color: #555555;   /* Gray for metadata */
+    --border-color: #e0e0e0;
+    --dot-color: #bbbbbb;      /* Subtle grid dots */
+    --link-color: #000;
+
+    --font-serif: 'Merriweather', serif;
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace; /* Replaces 'Inter' for technical feel */
+}
+
+[data-theme="dark"] {
+    --bg-color: #111111;       /* Deep black */
+    --text-color: #cccccc;     /* Soft white */
+    --accent-color: #888888;
+    --border-color: #333333;
+    --dot-color: #333333;      /* Dark gray dots */
+    --link-color: #fff;
+}
+
+/* 2. Global Resets & Body */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-serif);
+    line-height: 1.6;
+    font-size: 16px;
+
+    /* Dotted Paper Background Pattern */
+    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+
+    /* Smooth Theme Transition (Background only) */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Text Selection (Premium Feel) */
+::selection {
+    background: #333333;
+    color: #ffffff;
+}
+[data-theme="dark"] ::selection {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* 3. Layout & Navbar */
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    /* Optional: Slight background if you want text to pop over dots, otherwise remove for full transparency */
+    /* background-color: var(--bg-color); */ 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-family: var(--font-mono); /* Technical Font */
+    font-size: 0.85rem;
+    margin-right: 15px;
+    letter-spacing: -0.02em;
+}
+
+.nav-links a:hover { color: var(--text-color); }
+.nav-links a.active { color: var(--text-color); font-weight: 500; border-bottom: 1px solid var(--text-color); }
+
+/* 4. Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-mono); /* Technical Headers */
+    letter-spacing: -0.03em;
+}
+
+h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem; }
+h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+p { margin-bottom: 1rem; color: var(--text-color); }
+
+/* Drop Cap (Magazine Style) */
+.lead::first-letter {
+    float: left;
+    font-size: 3.5rem;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    margin-top: 0.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+/* "View All" Links */
+.view-all {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 2.5rem 0;
+}
+
+/* 5. Components */
+
+/* Intro Section */
+.intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.intro-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    border: 1px solid var(--border-color); /* Adds a technical border */
+}
+
+/* Socials in Intro */
+.intro-socials {
+    margin-top: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+.intro-socials a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+}
+.intro-socials a:hover { border-bottom: 1px solid var(--text-color); }
+
+/* Separator Slash */
+.separator {
+    color: var(--border-color);
+    margin: 0 8px;
+    user-select: none;
+}
+
+/* Teaser / Project Lists */
+.teaser-item {
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.2rem;
+}
+.teaser-item:last-child { border-bottom: none; }
+
+.teaser-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.3rem;
+}
+.teaser-header a {
+    font-family: var(--font-mono); /* Project Titles are Mono */
+    font-weight: 700;
+    text-decoration: none;
+}
+.teaser-header a:hover { text-decoration: underline; }
+
+.teaser-header .date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent-color);
+}
+
+.teaser-desc {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.gallery-item {
+    border-radius: 4px;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+.gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+.gallery-item:hover img { filter: grayscale(0%); }
+
+.caption {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-color);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Toggle Button */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+    color: var(--text-color);
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.social-links {
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+.social-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.social-links a:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+.copyright {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .intro-content { flex-direction: column-reverse; align-items: flex-start; }
+    .nav-links { font-size: 0.8rem; }
+    h1 { font-size: 1.8rem; }
+}
+
+canvas {
+    display: block;
+    position: fixed; /* Stays in place while you scroll */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Behind everything */
+    pointer-events: none; /* Let clicks pass through to links */
+}
+
+/* Important: Ensure your container background is transparent so you can see the canvas */
+.container {
+    background-color: transparent; 
+}
+
+
+/* Contact Form Styles */
+.contact-form {
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--text-color); /* Darkens border on focus */
+}
+
+.submit-btn {
+    background-color: var(--text-color);
+    color: var(--bg-color); /* Inverted colors for contrast */
+    border: 1px solid var(--text-color);
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+/* MOBILE NAVBAR FIX */
+@media (max-width: 600px) {
+    
+    .navbar {
+        /* Align items nicely */
+        padding: 1rem; 
+        gap: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        
+        /* 1. Force items to stay in one line */
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        
+        /* 2. Enable horizontal scrolling */
+        overflow-x: auto;
+        
+        /* 3. Smooth scrolling physics on iOS */
+        -webkit-overflow-scrolling: touch; 
+        
+        /* 4. Hide the ugly scrollbar (but keep functionality) */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+        
+        /* 5. Add breathing room so the last link isn't cut off */
+        padding-right: 20px;
+        mask-image: linear-gradient(to right, black 90%, transparent 100%); /* Fades out the right edge */
+        -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
+    }
+
+    /* Hide scrollbar for Chrome/Safari */
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-links a {
+        /* Make touch targets slightly larger for fingers */
+        padding: 5px 0;
+        margin-right: 20px;
+        font-size: 0.95rem; /* Readable size */
+    }
+    
+    /* Ensure the Theme Button doesn't shrink */
+    #theme-toggle {
+        flex-shrink: 0;
+        margin-left: 5px;
+        padding-left: 10px;
+        border-left: 1px solid var(--border-color); /* Visual separator */
+    }
+}

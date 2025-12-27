@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
+    <title>Blog - Pushpendra</title>
+    <script>
+        (function() {
+            // Check local storage or system preference immediately
+            const theme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            // Apply the theme to the HTML tag before the page renders
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resume.html">Resume</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+    </nav>
+
+    <main class="container">
+        
+        <header>
+            <h1>Writing</h1>
+            <p>Thoughts on software engineering, design, and productivity.</p>
+            <p>And some random stuff.</p>
+        </header>
+
+        <hr>
+
+        <section class="blog-list">
+            
+            <!-- <article style="margin-bottom: 2.5rem;">
+                <span style="font-family: var(--font-sans); color: var(--accent-color); font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">October 12, 2023</span>
+                <h2 style="margin-top: 0; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                    <a href="blog/minimalism.html" style="text-decoration: none; color: var(--text-color);">The Art of Minimalism in Code</a>
+                </h2>
+                <p style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.6;">
+                    Complexity is the enemy of reliability. In this post, I explore how removing code is often better than adding it, and why "boring" technology stacks usually win in the long run.
+                </p>
+                <a href="#" style="font-size: 0.9rem; font-family: var(--font-sans);">Read more →</a>
+            </article>
+
+            <article style="margin-bottom: 2.5rem;">
+                <span style="font-family: var(--font-sans); color: var(--accent-color); font-size: 0.85rem; display: block; margin-bottom: 0.5rem;">September 05, 2023</span>
+                <h2 style="margin-top: 0; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                    <a href="#" style="text-decoration: none; color: var(--text-color);">Why I Switched to Vim</a>
+                </h2>
+                <p style="margin-bottom: 0.5rem; font-size: 1rem; line-height: 1.6;">
+                    After years of using VS Code, I decided to take the plunge into modal editing. It was painful at first, but the muscle memory payoff is undeniable.
+                </p>
+                <a href="#" style="font-size: 0.9rem; font-family: var(--font-sans);">Read more →</a>
+            </article> -->
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+<footer class="site-footer">
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+        </a>
+        
+        <span class="separator">/</span>
+        
+        <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">
+            GitHub
+        </a>
+        
+        <span class="separator">/</span>
+        
+        <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">
+            X (Twitter)
+        </a>
+    </div>
+    
+    <p class="copyright">&copy; 2025 Pushpendra Pratap Singh.</p>
+</footer>
+
+</html>

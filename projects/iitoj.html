@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Alex Dev</title>
+    
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="../projects.html">← Back to Projects</a>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+    </nav>
+
+    <main class="container">
+        
+        <header style="margin-bottom: 2rem;">
+            <h1 style="margin-bottom: 0.5rem;">IIT Online Judge</h1>
+            <!-- <p style="color: var(--accent-color); font-family: var(--font-sans);">
+                Vue.js • Firebase • 2023
+            </p>
+            
+            <div style="margin-top: 1rem; font-family: var(--font-sans); font-size: 0.9rem;">
+                <a href="#" style="margin-right: 15px;">View Live Demo ↗</a>
+                <a href="#">Source Code ↗</a>
+            </div> -->
+        </header>
+
+        <!-- <hr>
+
+        <article class="project-content">
+            
+            <h3>The Problem</h3>
+            <p>
+                I needed a todo list that wasn't bloated with features. Most apps required too many clicks to add a simple task. I wanted something that felt like writing on paper but had the benefits of cloud sync.
+            </p>
+
+            <figure style="margin: 2rem 0;">
+                <img src="https://via.placeholder.com/700x400" alt="TaskMaster Dashboard Interface" style="width: 100%; border-radius: 4px; border: 1px solid var(--border-color);">
+                <figcaption style="text-align: center; font-size: 0.85rem; color: var(--accent-color); margin-top: 0.5rem;">The main dashboard view</figcaption>
+            </figure>
+
+            <h3>The Solution</h3>
+            <p>
+                I built TaskMaster using Vue.js for its reactive data binding. The UI is completely "optimistic"—meaning when you check a box, it updates instantly on screen while syncing to Firebase in the background.
+            </p>
+            
+            <h3>Technical Challenges</h3>
+            <ul>
+                <li><strong>Offline Sync:</strong> Implementing a local storage fallback so the app works on subways/airplanes.</li>
+                <li><strong>Drag and Drop:</strong> Used the native HTML5 Drag and Drop API instead of a heavy library to keep bundle size small.</li>
+            </ul>
+
+        </article> -->
+
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>
