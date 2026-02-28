@@ -1,0 +1,27 @@
+---
+layout: base
+---
+
+<nav class="navbar">
+    <div class="nav-links">
+        <a href="{{ site.baseurl }}/blog.html">← Back to Blog</a>
+    </div>
+    <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+</nav>
+
+<main class="container">
+
+    <header style="margin-bottom: 2rem;">
+        <h1 style="margin-bottom: 0.5rem;">{{ page.title }}</h1>
+        <p style="color: var(--accent-color); font-family: var(--font-mono); font-size: 0.9rem;">
+            {{ page.date | date: "%B %d, %Y" }}
+        </p>
+    </header>
+
+    <hr>
+
+    <article class="project-content">
+        {{ content }}
+    </article>
+
+</main>

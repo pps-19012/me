@@ -1,0 +1,19 @@
+---
+layout: base
+---
+
+<nav class="navbar">
+    <div class="nav-links">
+        <a href="{{ site.baseurl }}/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+        <a href="{{ site.baseurl }}/resume.html" {% if page.url == "/resume.html" %}class="active"{% endif %}>Resume</a>
+        <a href="{{ site.baseurl }}/projects.html" {% if page.url == "/projects.html" %}class="active"{% endif %}>Projects</a>
+        <a href="{{ site.baseurl }}/blog.html" {% if page.url == "/blog.html" %}class="active"{% endif %}>Blog</a>
+        <a href="{{ site.baseurl }}/gallery.html" {% if page.url == "/gallery.html" %}class="active"{% endif %}>Gallery</a>
+        <a href="{{ site.baseurl }}/contact.html" {% if page.url == "/contact.html" %}class="active"{% endif %}>Contact</a>
+    </div>
+    <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+</nav>
+
+<main class="container">
+    {{ content }}
+</main>

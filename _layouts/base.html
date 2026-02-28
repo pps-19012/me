@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
+
+    <title>{{ page.title }}{% if page.title != site.title %} - {{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="author" content="{{ site.author }}">
+
+    <meta property="og:title" content="{{ page.title }} - {{ site.title }}">
+    <meta property="og:description" content="{{ page.og_description | default: page.description | default: site.description }}">
+    <meta property="og:image" content="{{ page.og_image | default: site.og_image | absolute_url }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:type" content="{{ page.og_type | default: 'website' }}">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ site.twitter }}">
+    <meta name="twitter:title" content="{{ page.title }} - {{ site.title }}">
+    <meta name="twitter:description" content="{{ page.og_description | default: page.description | default: site.description }}">
+    <meta name="twitter:image" content="{{ page.og_image | default: site.og_image | absolute_url }}">
+
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+
+    {% if page.jsonld %}
+    <script type="application/ld+json">
+    {{ page.jsonld }}
+    </script>
+    {% endif %}
+
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    {{ content }}
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="separator">/</span>
+            <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="separator">/</span>
+            <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+        </div>
+        <p class="copyright">&copy; 2026 {{ site.author }}.</p>
+    </footer>
+
+    <script src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>

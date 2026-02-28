@@ -1,117 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
+---
+layout: default
+title: Projects
+description: Selected projects by Pushpendra Pratap Singh — online judges, ride-sharing apps, and more built with React, Go, Python, and Docker.
+---
 
-    <title>Projects - Pushpendra Pratap Singh</title>
-    <meta name="description" content="Selected projects by Pushpendra Pratap Singh — online judges, ride-sharing apps, and more built with React, Go, Python, and Docker.">
-    <meta name="author" content="Pushpendra Pratap Singh">
+<header>
+    <h1>Projects</h1>
+    <p>A selection of my work which might be useful and interesting.</p>
+</header>
 
-    <meta property="og:title" content="Projects - Pushpendra Pratap Singh">
-    <meta property="og:description" content="A selection of software engineering projects by Pushpendra Pratap Singh.">
-    <meta property="og:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
-    <meta property="og:url" content="https://pps-19012.github.io/me/projects.html">
-    <meta property="og:type" content="website">
+<hr>
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@pushpendra3000">
-    <meta name="twitter:title" content="Projects - Pushpendra Pratap Singh">
-    <meta name="twitter:description" content="A selection of software engineering projects by Pushpendra Pratap Singh.">
-    <meta name="twitter:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
-
-    <link rel="canonical" href="https://pps-19012.github.io/me/projects.html">
-
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="resume.html">Resume</a>
-            <a href="projects.html" class="active">Projects</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
+<section>
+    {% assign projects = site.projects | sort: "order" %}
+    {% for project in projects %}
+    <div class="teaser-item">
+        <div class="teaser-header">
+            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+            <!-- <span class="date">{{ project.stack }}</span> -->
         </div>
-        <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
-    </nav>
-
-    <main class="container">
-
-        <header>
-            <h1>Projects</h1>
-            <p>A selection of my work which might be useful and interesting.</p>
-        </header>
-
-        <hr>
-
-        <section>
-            <div class="teaser-item">
-                <div class="teaser-header">
-                    <a href="projects/qry.html">Qry</a>
-                    <span class="date">JavaScript / Chrome Extension</span>
-                </div>
-                <p class="teaser-desc">
-                    A keyboard-driven command palette for Chrome — instant tab search, workspace snapshots, split-view management, and browser control from a single shortcut.
-                </p>
-            </div>
-
-            <div class="teaser-item">
-                <div class="teaser-header">
-                    <a href="projects/iitoj.html">IIT Online Judge</a>
-                    <span class="date">React / Go / Docker</span>
-                </div>
-                <p class="teaser-desc">
-                    A full-stack competitive programming platform with containerized code execution, real-time contests, leaderboards, and multi-language support.
-                </p>
-            </div>
-
-            <div class="teaser-item">
-                <div class="teaser-header">
-                    <a href="projects/gotogether.html">GoTogether</a>
-                    <span class="date">React Native / Python / Socket.io</span>
-                </div>
-                <p class="teaser-desc">
-                    A ride-sharing mobile app with detour-aware matching, real-time group chat, and preference-based filtering.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-            </a>
-
-            <span class="separator">/</span>
-
-            <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            <span class="separator">/</span>
-
-            <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">
-                X (Twitter)
-            </a>
-        </div>
-
-        <p class="copyright">&copy; 2026 Pushpendra Pratap Singh.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <p class="teaser-desc">{{ project.summary }}</p>
+    </div>
+    {% endfor %}
+</section>

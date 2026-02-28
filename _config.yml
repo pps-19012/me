@@ -1,0 +1,24 @@
+title: Pushpendra Pratap Singh
+description: Software Engineer at Trading Technologies. IIT Gandhinagar Alumni.
+url: https://pps-19012.github.io
+baseurl: /me
+
+author: Pushpendra Pratap Singh
+og_image: /assets/profile_cropped.jpg
+twitter: pushpendra3000
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name.html
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project

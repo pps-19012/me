@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Sent - Alex Dev</title>
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+---
+layout: base
+title: Message Sent
+---
 
-    <main class="container" style="text-align: center; padding-top: 5rem;">
-        
-        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Message Sent.</h1>
-        <p style="font-family: var(--font-mono); color: var(--accent-color);">Thanks for reaching out. I'll get back to you shortly.</p>
-        
-        <hr style="margin: 2rem auto; max-width: 100px;">
-        
-        <a href="index.html" class="view-all">← Return to Home</a>
+<main class="container" style="text-align: center; padding-top: 5rem;">
 
-    </main>
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">Message Sent.</h1>
+    <p style="font-family: var(--font-mono); color: var(--accent-color);">Thanks for reaching out. I'll get back to you shortly.</p>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <hr style="margin: 2rem auto; max-width: 100px;">
+
+    <a href="{{ site.baseurl }}/" class="view-all">← Return to Home</a>
+
+</main>

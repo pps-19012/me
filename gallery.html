@@ -1,117 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
+---
+layout: default
+title: Gallery
+description: Photo gallery — snapshots from travels and work by Pushpendra Pratap Singh.
+---
 
-    <title>Gallery - Pushpendra Pratap Singh</title>
-    <meta name="description" content="Photo gallery — snapshots from travels and work by Pushpendra Pratap Singh.">
-    <meta name="author" content="Pushpendra Pratap Singh">
+<header>
+    <h1>Gallery</h1>
+    <p>Snapshots from my travels and work.</p>
+</header>
 
-    <meta property="og:title" content="Gallery - Pushpendra Pratap Singh">
-    <meta property="og:description" content="Snapshots from travels and work by Pushpendra Pratap Singh.">
-    <meta property="og:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
-    <meta property="og:url" content="https://pps-19012.github.io/me/gallery.html">
-    <meta property="og:type" content="website">
+<hr>
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@pushpendra3000">
-    <meta name="twitter:title" content="Gallery - Pushpendra Pratap Singh">
-    <meta name="twitter:description" content="Snapshots from travels and work by Pushpendra Pratap Singh.">
-    <meta name="twitter:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
-
-    <link rel="canonical" href="https://pps-19012.github.io/me/gallery.html">
-
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="resume.html">Resume</a>
-            <a href="projects.html">Projects</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html" class="active">Gallery</a>
-            <a href="contact.html">Contact</a>
+<div class="gallery-grid">
+    <!-- Add gallery items here:
+    <div>
+        <div class="gallery-item">
+            <img src="{{ '/assets/photos/your-photo.jpg' | relative_url }}" alt="Description">
         </div>
-        <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
-    </nav>
-
-    <main class="container">
-
-        <header>
-            <h1>Gallery</h1>
-            <p>Snapshots from my travels and work.</p>
-        </header>
-
-        <hr>
-
-        <div class="gallery-grid">
-<!--
-            <div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x400?text=Desk+Setup" alt="Workspace">
-                </div>
-                <div class="caption">My Minimalist Desk</div>
-            </div>
-
-            <div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x400?text=Kyoto" alt="Travel">
-                </div>
-                <div class="caption">Kyoto, 2023</div>
-            </div>
-
-            <div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x400?text=Code" alt="Code">
-                </div>
-                <div class="caption">Late night debugging</div>
-            </div>
-
-            <div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/400x400?text=Coffee" alt="Coffee">
-                </div>
-                <div class="caption">Fuel</div>
-            </div> -->
-
-        </div>
-
-    </main>
-
-    <footer class="site-footer">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-            </a>
-
-            <span class="separator">/</span>
-
-            <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            <span class="separator">/</span>
-
-            <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">
-                X (Twitter)
-            </a>
-        </div>
-
-        <p class="copyright">&copy; 2026 Pushpendra Pratap Singh.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <div class="caption">Caption text</div>
+    </div>
+    -->
+</div>

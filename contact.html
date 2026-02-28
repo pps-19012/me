@@ -1,122 +1,45 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
-    
-    <title>Contact - Pushpendra Pratap Singh</title>
-    <meta name="description" content="Get in touch with Pushpendra Pratap Singh. Software Engineer at Trading Technologies available for collaboration on distributed systems and open source.">
-    <meta name="keywords" content="Contact Pushpendra Pratap Singh, Hire Software Engineer, Trading Technologies, Collaboration, Developer Contact">
-    <meta name="author" content="Pushpendra Pratap Singh">
-
-    <meta property="og:title" content="Contact Pushpendra Pratap Singh">
-    <meta property="og:description" content="Get in touch for collaborations, freelance work, or engineering discussions.">
-    <meta property="og:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
-    <meta property="og:url" content="https://pps-19012.github.io/me/contact.html">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@pushpendra3000">
-    <meta name="twitter:title" content="Contact Pushpendra Pratap Singh">
-    <meta name="twitter:description" content="Get in touch for collaborations, freelance work, or engineering discussions.">
-    <meta name="twitter:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
-
-    <link rel="canonical" href="https://pps-19012.github.io/me/contact.html">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "mainEntity": {
-        "@type": "Person",
-        "name": "Pushpendra Pratap Singh",
-        "image": "https://pps-19012.github.io/me/assets/profile_cropped.jpg",
-        "jobTitle": "Software Engineer",
-        "url": "https://pps-19012.github.io/me/"
-      }
+---
+layout: default
+title: Contact
+description: Get in touch with Pushpendra Pratap Singh. Software Engineer at Trading Technologies available for collaboration on distributed systems and open source.
+og_description: Get in touch for collaborations, freelance work, or engineering discussions.
+jsonld: >
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Pushpendra Pratap Singh",
+      "image": "https://pps-19012.github.io/me/assets/profile_cropped.jpg",
+      "jobTitle": "Software Engineer",
+      "url": "https://pps-19012.github.io/me/"
     }
-    </script>
+  }
+---
 
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-    
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+<header style="max-width: 500px; margin-bottom: 2rem;">
+    <h1>Get in Touch.</h1>
+    <p>I am always up for collaboration on interesting stuff.</p>
+</header>
 
-    <nav class="navbar">
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="resume.html">Resume</a>
-            <a href="projects.html">Projects</a>
-            <a href="blog.html">Blog</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html" class="active">Contact</a>
-        </div>
-        <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
-    </nav>
+<form id="contact-form" action="https://formspree.io/f/xjgvyaoa" method="POST" class="contact-form">
 
-    <main class="container">
-        
-        <header style="max-width: 500px; margin-bottom: 2rem;">
-            <h1>Get in Touch.</h1>
-            <p>I am always up for collaboration on interesting stuff.</p>
-        </header>
+    <input type="text" name="_gotcha" style="display:none">
 
-        <form id="contact-form" action="https://formspree.io/f/xjgvyaoa" method="POST" class="contact-form">
-    
-            <input type="text" name="_gotcha" style="display:none">
-        
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required placeholder="Jane Doe">
-            </div>
-        
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required placeholder="jane@example.com">
-            </div>
-        
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
-            </div>
-        
-            <button type="submit" id="form-status" class="submit-btn">Send Message →</button>
-        </form>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+    </div>
 
-    </main>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+    </div>
 
-    <footer class="site-footer">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-            </a>
-            
-            <span class="separator">/</span>
-            
-            <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">
-                GitHub
-            </a>
-            
-            <span class="separator">/</span>
-            
-            <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">
-                X (Twitter)
-            </a>
-        </div>
-        
-        <p class="copyright">&copy; 2026 Pushpendra Pratap Singh.</p>
-    </footer>
+    <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
+    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <button type="submit" id="form-status" class="submit-btn">Send Message →</button>
+</form>

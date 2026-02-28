@@ -1,39 +1,34 @@
+---
+layout: null
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pps-19012.github.io/me/</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ '/' | absolute_url }}</loc>
   </url>
   <url>
-    <loc>https://pps-19012.github.io/me/resume.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ '/resume.html' | absolute_url }}</loc>
   </url>
   <url>
-    <loc>https://pps-19012.github.io/me/projects.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ '/projects.html' | absolute_url }}</loc>
   </url>
   <url>
-    <loc>https://pps-19012.github.io/me/blog.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ '/blog.html' | absolute_url }}</loc>
   </url>
   <url>
-    <loc>https://pps-19012.github.io/me/gallery.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ '/gallery.html' | absolute_url }}</loc>
   </url>
   <url>
-    <loc>https://pps-19012.github.io/me/contact.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ '/contact.html' | absolute_url }}</loc>
   </url>
+  {% for project in site.projects %}
   <url>
-    <loc>https://pps-19012.github.io/me/projects/iitoj.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ project.url | absolute_url }}</loc>
   </url>
+  {% endfor %}
+  {% for post in site.posts %}
   <url>
-    <loc>https://pps-19012.github.io/me/projects/qry.html</loc>
-    <lastmod>2026-02-28</lastmod>
+    <loc>{{ post.url | absolute_url }}</loc>
   </url>
-  <url>
-    <loc>https://pps-19012.github.io/me/projects/gotogether.html</loc>
-    <lastmod>2026-02-28</lastmod>
-  </url>
+  {% endfor %}
 </urlset>
