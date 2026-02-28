@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
+
+    <title>Qry - Pushpendra Pratap Singh</title>
+    <meta name="description" content="Qry is a Chrome extension that adds a keyboard-driven command palette for instant tab search, history, bookmarks, workspace snapshots, and split-view window management.">
+    <meta name="author" content="Pushpendra Pratap Singh">
+
+    <meta property="og:title" content="Qry - Pushpendra Pratap Singh">
+    <meta property="og:description" content="A Chrome command palette for instant tab search, workspace management, and browser control — all from the keyboard.">
+    <meta property="og:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
+    <meta property="og:url" content="https://pps-19012.github.io/me/projects/qry.html">
+    <meta property="og:type" content="article">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pushpendra3000">
+    <meta name="twitter:title" content="Qry - Pushpendra Pratap Singh">
+    <meta name="twitter:description" content="A Chrome command palette for instant tab search, workspace management, and browser control — all from the keyboard.">
+    <meta name="twitter:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
+
+    <link rel="canonical" href="https://pps-19012.github.io/me/projects/qry.html">
+
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="../projects.html">← Back to Projects</a>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+    </nav>
+
+    <main class="container">
+
+        <header style="margin-bottom: 2rem;">
+            <h1 style="margin-bottom: 0.5rem;">Qry</h1>
+            <p style="color: var(--accent-color); font-family: var(--font-mono); font-size: 0.9rem;">
+                JavaScript · Chrome Manifest V3 · Fuse.js
+            </p>
+
+            <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.9rem;">
+                <a href="https://github.com/pps-19012/qry" target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+            </div>
+        </header>
+
+        <hr>
+
+        <article class="project-content">
+
+            <h2>The Problem</h2>
+            <p>
+                If you have 30+ tabs open, finding the right one is slow. You either scan through tiny favicons or Ctrl+Tab through them one by one. Browser history and bookmarks live behind separate menus. There's no single, fast way to search across everything and act on it from the keyboard.
+            </p>
+
+            <h2>What I Built</h2>
+            <p>
+                Qry is a Chrome extension that adds a Spotlight/VS Code-style command palette to the browser. Hit <strong>Cmd+Shift+Space</strong> and a search bar appears over any page. From there you can:
+            </p>
+            <ul>
+                <li>Search across all open tabs by title or URL and switch instantly</li>
+                <li>Search browser history (<code>:h</code>) and bookmarks (<code>:b</code>)</li>
+                <li>Run browser actions (<code>&gt;</code>) — pin/mute tabs, split windows, clear cache</li>
+                <li>Save workspace snapshots — capture all open tabs and restore them later</li>
+                <li>Stash individual tabs — close them now, reopen with a keystroke later</li>
+            </ul>
+            <p>
+                Everything is keyboard-driven. No mouse needed.
+            </p>
+
+            <h2>How It Works</h2>
+            <p>
+                The extension runs across three isolated contexts that communicate via Chrome's message passing API:
+            </p>
+            <ul>
+                <li><strong>Service Worker</strong> — The brain. Handles all search logic, executes browser actions (tab switching, window splitting, stash/snapshot management), and tracks tab activation order for MRU ranking.</li>
+                <li><strong>Content Script</strong> — Injected into every page. Creates an isolated iframe for the palette UI and relays messages between the page and the service worker.</li>
+                <li><strong>Palette UI</strong> — Runs inside the iframe. Handles rendering search results, keyboard navigation, and the settings panel. Isolated from the host page's CSS/JS to avoid conflicts.</li>
+            </ul>
+
+            <h2>Key Design Decisions</h2>
+            <ul>
+                <li><strong>Iframe isolation:</strong> The palette runs in an iframe rather than being injected directly into the page DOM. This completely avoids CSS conflicts with websites and keeps the UI consistent everywhere.</li>
+                <li><strong>Lazy content script injection:</strong> Tabs opened before the extension was installed don't have the content script. Qry detects this and injects it on-demand when you first try to open the palette on that tab.</li>
+                <li><strong>MRU tab ordering:</strong> The default tab list is sorted by most-recently-used, not tab position. The tab you were just on is always at the top — one keystroke to switch back.</li>
+                <li><strong>Fuzzy search:</strong> Uses Fuse.js for intelligent matching. Typos and partial queries still find results.</li>
+                <li><strong>Zero build tooling:</strong> Pure ES6 modules with a single dependency (Fuse.js). No bundler, no compile step — just load and go.</li>
+            </ul>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Prefix-based mode switching — <code>:h</code> history, <code>:b</code> bookmarks, <code>&gt;</code> actions, default is tabs</li>
+                <li>Split-view window management — snap current tab to left/right/top/bottom half of screen</li>
+                <li>Workspace snapshots — save and restore entire sets of tabs</li>
+                <li>Tab stashing — close now, restore later</li>
+                <li>6 themes (Chrome Dark/Light, Spotlight, VS Code, Gruvbox, Dracula) with 7 accent colors</li>
+                <li>Adjustable opacity and interface scaling</li>
+                <li>Full keyboard navigation throughout</li>
+            </ul>
+
+        </article>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="separator">/</span>
+            <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="separator">/</span>
+            <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+        </div>
+        <p class="copyright">&copy; 2026 Pushpendra Pratap Singh.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

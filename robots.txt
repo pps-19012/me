@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace with your actual domain
-Sitemap: https://yourusername.github.io/sitemap.xml
+Sitemap: https://pps-19012.github.io/me/sitemap.xml

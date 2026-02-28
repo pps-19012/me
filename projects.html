@@ -4,19 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
-    <title>Projects - Pushpendra</title>
+
+    <title>Projects - Pushpendra Pratap Singh</title>
+    <meta name="description" content="Selected projects by Pushpendra Pratap Singh — online judges, ride-sharing apps, and more built with React, Go, Python, and Docker.">
+    <meta name="author" content="Pushpendra Pratap Singh">
+
+    <meta property="og:title" content="Projects - Pushpendra Pratap Singh">
+    <meta property="og:description" content="A selection of software engineering projects by Pushpendra Pratap Singh.">
+    <meta property="og:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
+    <meta property="og:url" content="https://pps-19012.github.io/me/projects.html">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pushpendra3000">
+    <meta name="twitter:title" content="Projects - Pushpendra Pratap Singh">
+    <meta name="twitter:description" content="A selection of software engineering projects by Pushpendra Pratap Singh.">
+    <meta name="twitter:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
+
+    <link rel="canonical" href="https://pps-19012.github.io/me/projects.html">
+
     <script>
         (function() {
-            // Check local storage or system preference immediately
-            const theme = localStorage.getItem('theme') || 
+            const theme = localStorage.getItem('theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            
-            // Apply the theme to the HTML tag before the page renders
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -33,7 +48,7 @@
     </nav>
 
     <main class="container">
-        
+
         <header>
             <h1>Projects</h1>
             <p>A selection of my work which might be useful and interesting.</p>
@@ -41,86 +56,62 @@
 
         <hr>
 
-        <!-- <section style="margin-bottom: 3rem;">
-            <h3>Web Applications</h3>
-            <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                
-                <div class="project-card" style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-                        <h4 style="font-size: 1.1rem; margin-bottom: 0;">
-                            <a href="projects/taskmaster.html">TaskMaster</a>
-                        </h4>
-                        <a href="a#" style="font-size: 0.85rem; font-family: var(--font-sans);">GitHub ↗</a>
-                    </div>
-                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--accent-color);">
-                        A minimalist productivity app with drag-and-drop kanban boards.
-                    </p>
-                    <div style="font-size: 0.8rem; font-family: var(--font-sans);">
-                        <span style="background: var(--border-color); padding: 2px 6px; border-radius: 4px; margin-right: 5px;">Vue.js</span>
-                        <span style="background: var(--border-color); padding: 2px 6px; border-radius: 4px;">Firebase</span>
-                    </div>
+        <section>
+            <div class="teaser-item">
+                <div class="teaser-header">
+                    <a href="projects/qry.html">Qry</a>
+                    <span class="date">JavaScript / Chrome Extension</span>
                 </div>
+                <p class="teaser-desc">
+                    A keyboard-driven command palette for Chrome — instant tab search, workspace snapshots, split-view management, and browser control from a single shortcut.
+                </p>
+            </div>
 
-                <div class="project-card" style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-                        <h4 style="font-size: 1.1rem; margin-bottom: 0;">E-Com Dash</h4>
-                        <a href="#" style="font-size: 0.85rem; font-family: var(--font-sans);">Live Demo ↗</a>
-                    </div>
-                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--accent-color);">
-                        Analytics dashboard for Shopify stores with real-time data visualization.
-                    </p>
-                    <div style="font-size: 0.8rem; font-family: var(--font-sans);">
-                        <span style="background: var(--border-color); padding: 2px 6px; border-radius: 4px; margin-right: 5px;">React</span>
-                        <span style="background: var(--border-color); padding: 2px 6px; border-radius: 4px;">D3.js</span>
-                    </div>
+            <div class="teaser-item">
+                <div class="teaser-header">
+                    <a href="projects/iitoj.html">IIT Online Judge</a>
+                    <span class="date">React / Go / Docker</span>
                 </div>
+                <p class="teaser-desc">
+                    A full-stack competitive programming platform with containerized code execution, real-time contests, leaderboards, and multi-language support.
+                </p>
+            </div>
 
+            <div class="teaser-item">
+                <div class="teaser-header">
+                    <a href="projects/gotogether.html">GoTogether</a>
+                    <span class="date">React Native / Python / Socket.io</span>
+                </div>
+                <p class="teaser-desc">
+                    A ride-sharing mobile app with detour-aware matching, real-time group chat, and preference-based filtering.
+                </p>
             </div>
         </section>
 
-        <section>
-            <h3>Open Source</h3>
-            <div class="project-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                
-                <div class="project-card" style="border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 4px;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-                        <h4 style="font-size: 1.1rem; margin-bottom: 0;">CLI-Tool-Kit</h4>
-                        <a href="#" style="font-size: 0.85rem; font-family: var(--font-sans);">NPM ↗</a>
-                    </div>
-                    <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--accent-color);">
-                        A zero-dependency CLI scaffolding tool for Node.js projects.
-                    </p>
-                    <div style="font-size: 0.8rem; font-family: var(--font-sans);">
-                        <span style="background: var(--border-color); padding: 2px 6px; border-radius: 4px;">Node.js</span>
-                    </div>
-                </div>
-
-            </div>
-        </section> -->
-
     </main>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+            </a>
+
+            <span class="separator">/</span>
+
+            <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">
+                GitHub
+            </a>
+
+            <span class="separator">/</span>
+
+            <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">
+                X (Twitter)
+            </a>
+        </div>
+
+        <p class="copyright">&copy; 2026 Pushpendra Pratap Singh.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
-<footer class="site-footer">
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-        </a>
-        
-        <span class="separator">/</span>
-        
-        <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">
-            GitHub
-        </a>
-        
-        <span class="separator">/</span>
-        
-        <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">
-            X (Twitter)
-        </a>
-    </div>
-    
-    <p class="copyright">&copy; 2025 Pushpendra Pratap Singh.</p>
-</footer>
 </html>

@@ -3,18 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskMaster - Alex Dev</title>
-    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22monospace%22>%3E_</text></svg>">
+
+    <title>IIT Online Judge - Pushpendra Pratap Singh</title>
+    <meta name="description" content="A full-stack competitive programming platform with containerized code execution, real-time contests, and leaderboards. Built with React, Go, and Docker.">
+    <meta name="author" content="Pushpendra Pratap Singh">
+
+    <meta property="og:title" content="IIT Online Judge - Pushpendra Pratap Singh">
+    <meta property="og:description" content="A full-stack competitive programming platform with containerized code execution, real-time contests, and leaderboards.">
+    <meta property="og:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
+    <meta property="og:url" content="https://pps-19012.github.io/me/projects/iitoj.html">
+    <meta property="og:type" content="article">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pushpendra3000">
+    <meta name="twitter:title" content="IIT Online Judge - Pushpendra Pratap Singh">
+    <meta name="twitter:description" content="A full-stack competitive programming platform with containerized code execution, real-time contests, and leaderboards.">
+    <meta name="twitter:image" content="https://pps-19012.github.io/me/assets/profile_cropped.jpg">
+
+    <link rel="canonical" href="https://pps-19012.github.io/me/projects/iitoj.html">
+
     <script>
         (function() {
-            const theme = localStorage.getItem('theme') || 
+            const theme = localStorage.getItem('theme') ||
                 (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
-    
+
     <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -26,47 +44,74 @@
     </nav>
 
     <main class="container">
-        
+
         <header style="margin-bottom: 2rem;">
             <h1 style="margin-bottom: 0.5rem;">IIT Online Judge</h1>
-            <!-- <p style="color: var(--accent-color); font-family: var(--font-sans);">
-                Vue.js • Firebase • 2023
+            <p style="color: var(--accent-color); font-family: var(--font-mono); font-size: 0.9rem;">
+                React · TypeScript · Go · Docker · Turso
             </p>
-            
-            <div style="margin-top: 1rem; font-family: var(--font-sans); font-size: 0.9rem;">
-                <a href="#" style="margin-right: 15px;">View Live Demo ↗</a>
-                <a href="#">Source Code ↗</a>
-            </div> -->
+
+            <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.9rem;">
+                <a href="https://github.com/pps-19012/online-judge" target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+            </div>
         </header>
 
-        <!-- <hr>
+        <hr>
 
         <article class="project-content">
-            
-            <h3>The Problem</h3>
+
+            <h2>The Problem</h2>
             <p>
-                I needed a todo list that wasn't bloated with features. Most apps required too many clicks to add a simple task. I wanted something that felt like writing on paper but had the benefits of cloud sync.
+                IIT Gandhinagar needed an internal competitive programming platform for hosting coding contests. Existing options were either too expensive for institutional use or lacked the flexibility to run custom contests with controlled participation.
             </p>
 
-            <figure style="margin: 2rem 0;">
-                <img src="https://via.placeholder.com/700x400" alt="TaskMaster Dashboard Interface" style="width: 100%; border-radius: 4px; border: 1px solid var(--border-color);">
-                <figcaption style="text-align: center; font-size: 0.85rem; color: var(--accent-color); margin-top: 0.5rem;">The main dashboard view</figcaption>
-            </figure>
-
-            <h3>The Solution</h3>
+            <h2>What I Built</h2>
             <p>
-                I built TaskMaster using Vue.js for its reactive data binding. The UI is completely "optimistic"—meaning when you check a box, it updates instantly on screen while syncing to Firebase in the background.
+                A full-stack online judge where instructors can create contests, add problems with hidden test cases, and invite specific students. Participants write and submit code in multiple languages, which gets evaluated in real time against test cases with automatic verdict generation and leaderboard ranking.
             </p>
-            
-            <h3>Technical Challenges</h3>
+
+            <h2>Architecture</h2>
+            <p>
+                The system is split into three services:
+            </p>
             <ul>
-                <li><strong>Offline Sync:</strong> Implementing a local storage fallback so the app works on subways/airplanes.</li>
-                <li><strong>Drag and Drop:</strong> Used the native HTML5 Drag and Drop API instead of a heavy library to keep bundle size small.</li>
+                <li><strong>Frontend</strong> — React 18 with TypeScript, Tailwind CSS, and Radix UI components. Handles contest browsing, the code editor, submission history, and leaderboards.</li>
+                <li><strong>Backend API</strong> — Go (Fiber framework) serving REST endpoints for contest/problem management, user auth (Google OAuth + JWT), and submission orchestration. Backed by Turso (cloud SQLite).</li>
+                <li><strong>Judge Service</strong> — A separate Go service that receives code submissions, spins up isolated Docker containers per submission, executes user code against test inputs, and validates outputs. Uses a goroutine-based job queue for concurrent processing.</li>
             </ul>
 
-        </article> -->
+            <h2>Key Design Decisions</h2>
+            <ul>
+                <li><strong>Containerized execution:</strong> Every submission runs inside an isolated Alpine Linux Docker container. This prevents malicious code from affecting the host and enforces time/memory limits per language.</li>
+                <li><strong>Separate judge service:</strong> Decoupling the judge from the API server means the judge can be scaled independently and a slow submission queue doesn't block API responses.</li>
+                <li><strong>Turso/LibSQL:</strong> Chose cloud-hosted SQLite over Postgres to simplify deployment and avoid managing a database server — good enough for the expected load.</li>
+                <li><strong>Google OAuth:</strong> Students already have institutional Google accounts, so this eliminated the need for a custom auth system.</li>
+            </ul>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Multi-language support (Python, C++, C) with per-language time and memory limits</li>
+                <li>Contest creation with start/end times and invite-only participation</li>
+                <li>Hidden and visible test cases per problem</li>
+                <li>"Run" mode for testing code before final submission</li>
+                <li>Real-time leaderboards with score tracking</li>
+                <li>Submission history with verdicts (AC, WA, TLE, RE)</li>
+            </ul>
+
+        </article>
 
     </main>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/pushpendra-pratap-singh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="separator">/</span>
+            <a href="https://github.com/pps-19012" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="separator">/</span>
+            <a href="https://x.com/pushpendra3000" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+        </div>
+        <p class="copyright">&copy; 2026 Pushpendra Pratap Singh.</p>
+    </footer>
 
     <script src="../script.js"></script>
 </body>
