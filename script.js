@@ -1,3 +1,9 @@
+// Auto-scroll nav to active link on mobile
+const activeNav = document.querySelector('.nav-links a.active');
+if (activeNav) {
+    activeNav.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'instant' });
+}
+
 const toggleButton = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
 
