@@ -4,6 +4,18 @@ if (activeNav) {
     activeNav.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'instant' });
 }
 
+// Hide nav scroll hint when scrolled to end
+const navLinks = document.querySelector('.nav-links');
+const scrollHint = document.querySelector('.nav-scroll-hint');
+if (navLinks && scrollHint) {
+    function updateHint() {
+        const atEnd = navLinks.scrollLeft + navLinks.clientWidth >= navLinks.scrollWidth - 10;
+        scrollHint.style.opacity = atEnd ? '0' : '1';
+    }
+    navLinks.addEventListener('scroll', updateHint);
+    updateHint();
+}
+
 const toggleButton = document.getElementById('theme-toggle');
 const htmlElement = document.documentElement;
 

@@ -259,6 +259,11 @@ hr {
     text-align: center;
 }
 
+/* Nav scroll hint - hidden on desktop */
+.nav-scroll-hint {
+    display: none;
+}
+
 /* Toggle Button */
 #theme-toggle {
     background: none;
@@ -387,53 +392,49 @@ input:focus, textarea:focus {
 
 /* MOBILE NAVBAR FIX */
 @media (max-width: 600px) {
-    
+
     .navbar {
-        /* Align items nicely */
-        padding: 1rem; 
+        padding: 1rem;
         gap: 10px;
+        position: relative;
     }
 
     .nav-links {
         display: flex;
-        
-        /* 1. Force items to stay in one line */
         flex-wrap: nowrap;
         white-space: nowrap;
-        
-        /* 2. Enable horizontal scrolling */
         overflow-x: auto;
-        
-        /* 3. Smooth scrolling physics on iOS */
-        -webkit-overflow-scrolling: touch; 
-        
-        /* 4. Hide the ugly scrollbar (but keep functionality) */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
-        
-        /* 5. Add breathing room so the last link isn't cut off */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
         padding-right: 20px;
-        mask-image: linear-gradient(to right, black 90%, transparent 100%); /* Fades out the right edge */
-        -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%);
     }
 
-    /* Hide scrollbar for Chrome/Safari */
     .nav-links::-webkit-scrollbar {
         display: none;
     }
 
     .nav-links a {
-        /* Make touch targets slightly larger for fingers */
         padding: 5px 0;
-        margin-right: 20px;
-        font-size: 0.95rem; /* Readable size */
+        margin-right: 18px;
+        font-size: 0.85rem;
     }
-    
-    /* Ensure the Theme Button doesn't shrink */
+
+    /* Scroll hint indicator */
+    .nav-scroll-hint {
+        display: block;
+        position: absolute;
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--accent-color);
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
     #theme-toggle {
         flex-shrink: 0;
-        margin-left: 5px;
-        padding-left: 10px;
-        border-left: 1px solid var(--border-color); /* Visual separator */
     }
 }
