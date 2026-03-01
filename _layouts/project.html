@@ -17,9 +17,9 @@ layout: base
             {{ page.stack }}
         </p> -->
         {% if page.github or page.webstore %}
-        <div style="margin-top: 1rem; font-family: var(--font-mono); font-size: 0.9rem;">
+        <div class="project-links">
             {% if page.github %}<a href="{{ page.github }}" target="_blank" rel="noopener noreferrer">Source Code ↗</a>{% endif %}
-            {% if page.github and page.webstore %}<span style="margin: 0 10px; color: var(--accent-color);">·</span>{% endif %}
+            {% if page.github and page.webstore %}<span class="link-sep">·</span>{% endif %}
             {% if page.webstore %}<a href="{{ page.webstore }}" target="_blank" rel="noopener noreferrer">Chrome Web Store ↗</a>{% endif %}
         </div>
         {% endif %}

@@ -1,23 +1,23 @@
 /* 1. Variables */
 :root {
-    --bg-color: #fcfcfc;       /* Off-white paper */
-    --text-color: #222222;     /* Sharp black */
-    --accent-color: #555555;   /* Gray for metadata */
-    --border-color: #e0e0e0;
-    --dot-color: #bbbbbb;      /* Subtle grid dots */
-    --link-color: #000;
+    --bg-color: #faf6ed;       /* Light cream */
+    --text-color: #2a2520;     /* Warm near-black */
+    --accent-color: #7d7264;   /* Warm gray */
+    --border-color: #e3d9c6;
+    --dot-color: #d0c4ae;      /* Warm dots */
+    --link-color: #2a2520;
 
     --font-serif: 'Merriweather', serif;
-    --font-mono: 'JetBrains Mono', 'Courier New', monospace; /* Replaces 'Inter' for technical feel */
+    --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 [data-theme="dark"] {
-    --bg-color: #111111;       /* Deep black */
-    --text-color: #cccccc;     /* Soft white */
-    --accent-color: #888888;
-    --border-color: #333333;
-    --dot-color: #333333;      /* Dark gray dots */
-    --link-color: #fff;
+    --bg-color: #171411;       /* Warm deep black */
+    --text-color: #d4c9ab;     /* Warm cream text */
+    --accent-color: #8f836e;
+    --border-color: #3a3328;
+    --dot-color: #3a3328;
+    --link-color: #e2d6b8;
 }
 
 /* 2. Global Resets & Body */
@@ -44,12 +44,12 @@ body {
 
 /* Custom Text Selection (Premium Feel) */
 ::selection {
-    background: #333333;
-    color: #ffffff;
+    background: #2a2520;
+    color: #faf6ed;
 }
 [data-theme="dark"] ::selection {
-    background: #ffffff;
-    color: #000000;
+    background: #e2d6b8;
+    color: #171411;
 }
 
 /* 3. Layout & Navbar */
@@ -109,6 +109,20 @@ p { margin-bottom: 1rem; color: var(--text-color); }
 }
 .project-content li {
     margin-bottom: 0.5rem;
+}
+
+/* Project Header Links */
+.project-links {
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+.project-links .link-sep {
+    color: var(--accent-color);
 }
 
 /* Drop Cap (Magazine Style) */
@@ -287,7 +301,23 @@ hr {
 @media (max-width: 600px) {
     .intro-content { flex-direction: column-reverse; align-items: flex-start; }
     .nav-links { font-size: 0.8rem; }
-    h1 { font-size: 1.8rem; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.15rem; }
+    h3 { font-size: 0.95rem; }
+    body { font-size: 15px; }
+
+    /* Stack title + date vertically on mobile */
+    .teaser-header {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    /* Resume job/education blocks use inline flex — override those too */
+    .job-block [style*="display: flex"],
+    .resume-section [style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 0.2rem;
+    }
 }
 
 canvas {
