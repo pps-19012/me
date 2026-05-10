@@ -5,7 +5,7 @@ summary: A full-stack competitive programming platform with containerized code e
 github: https://github.com/pps-19012/online-judge
 description: A full-stack competitive programming platform with containerized code execution, real-time contests, and leaderboards. Built with React, Go, and Docker.
 featured: true
-order: 2
+order: 3
 ---
 
 ## The Problem

@@ -6,7 +6,7 @@ github: https://github.com/pps-19012/qry
 webstore: https://chromewebstore.google.com/detail/qry-your-browser-command/lglgfgnfgmgkgjhpohhdkhjdgfjakdmm
 description: Qry is a Chrome extension that adds a keyboard-driven command palette for instant tab search, history, bookmarks, workspace snapshots, and split-view window management.
 featured: true
-order: 1
+order: 2
 ---
 
 ## The Problem

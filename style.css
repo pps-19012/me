@@ -102,6 +102,26 @@ h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
 
 p { margin-bottom: 1rem; color: var(--text-color); }
 
+/* Code Blocks */
+pre {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1.2rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+pre code {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+}
+
 /* Project/Blog Article Content */
 .project-content {
     font-size: 0.92rem;
